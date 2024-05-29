@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Variáveis em JavaScript</h1>
+        <p id="variavel-simples"></p>
+        <p id="variavel-composta"></p>
+        <p id="variavel-de-variaveis"></p>
+        <button id="mostrar-variaveis">Mostrar Variáveis</button>
+
+        <h2>Adicionar Frutas</h2>
+        <form id="form-frutas">
+            <input type="text" id="nova-fruta" required>
+            <button type="submit">Adicionar Fruta</button>
+        </form>
+        <p id="lista-frutas"></p>
+        <script>
+            document.getElementById('mostrar-variaveis').addEventListener('click', function(){
+                
+                let idade = 25
+                let nome = "Ana"
+                let casado = true
+
+                document.getElementById('variavel-simples').innerText = ` Simples: \n nome: ${nome}\n Idade: ${idade} \n Casado: ${casado}`
+
+                let frutas = ["maçã" , "banana", "laranja"]
+
+                let pessoa = {
+                    nome: "Carlos",
+                    idade: 30,
+                    casado: false
+                }
+                document.getElementById('variavel-composta').innerText = `Compostas:\n Frutas:${frutas.join(', ')}\n Pessoa: Nome: ${pessoa.nome}\n Idade: ${pessoa.idade}\n Casado: Casado: ${pessoa.casado}`
+
+                let a = 10
+                let b = 20
+                let c = 30
+
+                let variaveis = [a, b, c]
+                let chave = "dinamica"
+                let objetivoDinamico = {
+                    dinamica: "Este é um valor dinâmico"
+                }
+                document.getElementById('variavel-de-variaveis').innerText = `Variáveis de variáves: Array: ${variaveis.join(', ')}, Objeto Dinâmico: ${objetivoDinamico[chave]}`
+            })
+            let frutasArray = ["maçã", "banana", "laranja"]
+
+            document.getElementById('form-frutas').addEventListener('submit', function(event){
+                event.preventDefault()
+                let novaFruta = document.getElementById('nova-fruta').value
+                frutasArray.push(novaFruta)
+                document.getElementById('lista-frutas').innerText = `Lista de Frutas: ${frutasArray.join(', ')}`
+                document.getElementById('nova-fruta').value= ''
+            })
+        </script>
+    </div>
+</body>
+</html>
